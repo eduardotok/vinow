@@ -1,0 +1,176 @@
+:root{
+
+    --preto: #000000;
+    --branco: #fff;
+    --vermei: #FF9595E5;
+    --verde: #77B97ACC;
+    --fundoDiasCalendario: #EDEDED;
+    --fonteLowOpacitySemana: #2C2C2CB8;
+    --fonteLowOpacity: #00000066;
+
+}
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    height: 100vh;
+
+}
+
+
+.calendario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-calendario button{
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+}
+.divDiasDoAno{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    
+}
+
+.diasDoAno{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--fundoDiasCalendario);
+    width: auto;
+    height: 50px;
+    margin: 2px;
+    position: relative;
+    outline: 0 solid transparent;
+    transition: outline 0.5s ease-in-out;
+
+}
+
+.diasDoAno input[type="radio"]{
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+
+
+}
+.diasDoAno:has(input[type="radio"]:checked){
+    outline: 2px solid var(--preto);
+}
+
+.bolinha-verde{
+    background-color: var(--verde);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.bolinha-vermeia{
+    background-color: var(--vermei);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.data-inativa{
+    opacity: 0.4;
+}
+
+.btn-reservar{
+    background-color: var(--preto);
+    width: 100%;
+    height: 45px;
+    color: var(--branco);
+    font-weight: 800;
+    border: none;
+}
+
+.div-inputs-calendario label{
+    text-wrap: nowrap;
+
+}
+.div-inputs-calendario select{
+    width: 90%;
+    height: 20px;
+}
+
+
+
+/* CSS da tela de Cardapio */
+
+.div-opacidade-baixa{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: var(--fonteLowOpacity);
+    color: var(--branco);
+    font-weight: 700;
+    font-size: 1.7rem;
+    justify-content: center;
+    align-items: center;    
+    
+}
+
+.div-img{
+    width: 100%;
+    height: 100%;
+    
+}
+
+.img-cardapio{
+    width: 100%;
+    height: 100%;
+}
+
+.link-imagem{
+    text-decoration: none;
+}
+
+
+/* CSS Nosso Restaurante*/
+
+
+.div-texto{
+    display: flex;
+    position: absolute;
+    color: var(--branco);
+    flex-direction: column;
+    background-color: #0000005e;
+    height: 100%;
+    width: 100%;
+    padding: 50px;
+    justify-content: end;
+}
+
+.div-informacoes-nossoR{
+    border: 2px black solid;
+}
+
+.div-conteudo-informacoes h3{
+
+    font-weight: bold;
+
+}
+
+.butao-reserva{
+    background-color: #000000;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    width: 300px;
+    height: 35px;
+}
+
+.icones-infos{
+    width: 50px;
+    height: 50px;
+}

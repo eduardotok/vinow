@@ -1,0 +1,298 @@
+.cont-topo {
+    width: 95%;
+    
+    padding-top: 1%;
+}
+.titulo{
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--azul);
+}
+.lista-cards-home{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card-home{
+    width: 440px;
+    background-color: rgb(255, 255, 255);
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+    color: var(--azul);
+    cursor: pointer;
+    
+    & p{
+        
+        text-align: center;
+        margin-top: 1%;
+        font-size: 23px;
+        font-weight: 500;
+    }
+    & .numero{
+        font-size: 55px;
+        font-weight: 500;
+        padding: 0px;
+        margin: 0px;
+    }
+    & i{
+        font-size: 60px;
+        opacity: 80%;
+        margin: 0px;
+    }
+}
+.cardSelecionado {
+    background-color: var(--azul);
+    color: #fff"
+}
+.card-home:hover{
+    color: #fff;
+    background-color: var(--azul);
+}
+
+@media (max-width:1720px){
+    .lista-cards-home{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+}
+#cont-usuarios{
+ width: 95%;
+}
+.titulo-areas{
+    font-size: 30px;
+    color: var(--azul);
+    font-weight: 500;
+}
+.container-input-pesquisa{
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    width: 440px;
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 1%;
+    align-items: center;
+    border-radius: 5px;
+    
+    & input{
+        width: 90%;
+        height: 50px;
+        outline: none;
+        border: none;
+        color: #676767;
+
+        &:focus{
+            color: var(--azul);
+        }
+    }
+    & i{
+        font-size: 20px;
+        color: var(--azul);
+        opacity: 50%;
+    }
+}
+@media (max-width:600px){
+    .container-input-pesquisa{
+        width: 100%;
+        
+    }
+}
+.lista-cards-usuarios{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+    margin-bottom: 10%;
+   gap: 40px;
+   
+}
+.card-usuario{
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+        display: flex;
+        align-items: center;
+        padding-block: 0.3%;
+        justify-content: space-between;
+        padding-inline: 2%;
+        & .infos{
+            display: flex;
+            width: 80%;
+            font-size: 30px;
+            font-weight: 500;
+            justify-content: space-between;
+            color: var(--azul);
+            
+            & .email{
+                width: 600px;
+                text-align: center;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                
+            }
+        }
+        & .funcoes{
+           & button{
+            background-color: transparent;
+            border: none;
+            font-size: 35px;
+            color: var(--azul);
+            
+            &:hover{
+                color: #266dab;
+            }
+           } 
+           & a{
+            background-color: transparent;
+            border: none;
+            font-size: 35px;
+            color: var(--azul);
+            
+            &:hover{
+                color: #266dab;
+            }
+           } 
+           & p{
+            font-size: 25px;
+            text-align: end;
+            
+           }
+        }
+}
+@media (max-width:500px){
+    .lista-cards-usuarios{
+        margin-top: 10%;
+        gap: 40px;
+    }
+    .card-usuario{
+        flex-direction: column;
+        padding: 0px;
+        padding: 2%;
+        & .infos{
+           
+            width: 100%;
+            font-size: 20px;
+            font-weight: 500;
+            justify-content:start;
+            color: var(--azul);
+            flex-wrap: wrap;
+            & .id{
+                width: 15%;
+            }
+            & .nome{
+                width: 85%;
+                text-align: start;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            & .email{
+                width: 100%;
+                text-align: start;
+            }
+        }
+        & .funcoes{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            & p{
+               width: 70%;
+                padding: 0px;
+                margin: 0px;
+            }
+        }
+    }
+}
+.botoes-topo-produtos{
+    width: 70%;
+    justify-content: end;
+    flex-wrap: wrap;
+   display:flex;
+   margin-right: 2%;
+   gap: 40px;
+   & button{
+    background-color:var(--azul);
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    border-radius: 2px;
+    height: 45px;
+    padding-inline: 3%;
+    display: flex;
+    width: fit-content;
+    text-wrap: nowrap;
+    align-items: center;
+   }
+}
+@media (max-width:1000px){
+    .botoes-topo-produtos{
+        justify-content: start;
+        gap: 20px;
+        margin-bottom: 30px;
+      
+    }
+}
+
+.botoes-de-filtros-produtos{
+    margin-top: 3%;
+    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    & button{
+        padding-inline: 60px;
+        border: 1px var(--azul) solid;
+        border-radius: 3px;
+        padding-block: 5px;
+        font-weight: 600;
+        background-color: transparent;
+        &:hover{
+            color: #fff;
+            background-color: var(--azul);
+        }
+        &.selecionado-produto-filtro{
+            color: #fff;
+            background-color: var(--azul);
+        }
+    }
+}
+.lista-cards-produtos{
+    width: 100%;
+    height: 380px;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    display: flex;
+    gap: 50px 30px;
+    flex-wrap: wrap;
+    & .card-produto{
+        width: 340px;
+        height: 100%;
+        border-radius: 2px;
+        box-shadow: 0px 00px 10px rgba(0, 0, 0, 0.658);
+        & img{
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        
+        
+    }
+}
+#cont-produtos{
+    display: none;
+    width: 95%;
+}
+.imagemmodalnovoproduto{
+
+    height: 300px;
+    width: 300px;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

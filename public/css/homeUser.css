@@ -1,0 +1,37 @@
+:root{
+    --primaria : #000000;
+    --fontColor : white;
+    
+    
+    
+    --fontLowOpacity : rgba(0, 0, 0, 0.5);
+}
+
+*{
+    font-family:Arial, Helvetica, sans-serif;
+    
+}
+
+.imagemExposicao{
+    width: 200px !important;
+}
+
+p{
+    font-size:medium;
+}
+
+.cardHome{
+    width: 370px;
+    height: 550px;
+    
+}
+.cardHome img{
+    width: 370px;
+    height: 550px;
+    
+}
+.textoCardHome{
+    background-color: var(--fontLowOpacity);
+    color:white;
+    align-self: center;
+}

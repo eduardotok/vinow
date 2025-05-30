@@ -1,0 +1,17 @@
+.container-modal-novo-produto{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.404);
+    .modal-novo-produto{
+        background-color: white;
+        width: 80%;
+        display: flex;
+        .desc-valor{
+            background-color: aqua;
+            width: 70%;
+        }
+    }
+}

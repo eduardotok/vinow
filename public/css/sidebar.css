@@ -1,0 +1,132 @@
+
+
+.sidebar{
+    background-color: var(--azul);
+    height: 100%;
+    width: 300px;
+    position: fixed;
+   
+}
+.topo-sidebar{
+  width: 100%;
+  margin-top: 4%;
+  display: flex;
+  justify-content: center;
+  & p{
+    font-size: 30px;
+    color: var(--branco);
+    text-align: center;
+    text-transform: uppercase;
+    
+  }  
+}
+.navegadores-sidebar{
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.links-sidebar{
+    border-left: 6px solid transparent;
+    width: 100%;
+    text-decoration: none;
+    color: var(--branco);
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding-block: 1%;
+    padding-left: 3%;
+    gap: 15px;
+    & p{
+        font-size: 20px;
+        margin-top: 18px;
+    }
+    & i{
+        font-size: 40px;
+    }
+    
+}
+.navegadores-sidebar:hover .atual{
+    background-color: transparent;
+    border-left: 6px solid transparent;
+
+}
+.navegadores-sidebar .atual{
+    background-color: var(--sidelink);
+    border-left: 6px solid var(--sidelinkborder);
+}
+
+.navegadores-sidebar .links-sidebar:hover{
+    background-color: var(--sidelink);
+    border-left: 6px solid var(--sidelinkborder);
+  
+}
+/* .base-sidebar{
+    border-top: 1px solid rgba(255, 255, 255, 0.294);
+} */
+.sidebar-mobile{
+    display: none;
+}
+.fecharsidebar{
+    
+    font-size: 40px;
+    color: var(--branco);
+    height: fit-content;
+    padding: 0px;
+    display: none;
+    justify-content: end;
+}
+@media (max-width:1500px){
+    .sidebar{
+        display: none;
+        animation: AbrirsidebarCelular 350ms ease-in-out;
+    }
+    @keyframes AbrirsidebarCelular{
+        from{
+            transform: translateX(-100%);
+
+        }
+        to{
+            transform: translateX(-0%);
+
+        }
+    }
+    .fecharSidebar{
+        animation: FecharsidebarCelular 350ms ease-in-out;
+        display: none;
+    }
+    @keyframes FecharsidebarCelular{
+        from{
+            transform: translateX(-0%);
+
+        }
+        to{
+            transform: translateX(-100%);
+
+        }
+    }
+    .sidebar-mobile{
+        display: flex;
+        
+        width: fit-content;
+        position: fixed;
+        background-color: var(--branco);
+        width: 100%;
+        z-index: 99;
+        & button{
+            background-color: transparent;
+            border: none;
+
+            & i{
+                font-size: 50px;
+                color: var(--azul);
+            }
+        }
+    }
+    .fecharsidebar{
+        display: flex;
+    }
+    .navegadores-sidebar{
+        height: 85%;
+    }
+}
