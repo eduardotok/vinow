@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="{{ URL::asset('css/nav.css'); }}">
-    <div class="a">aa</div>
+<link rel="stylesheet" href="{{ URL::asset('css/nav.css') }}">
+    
     <nav>
         <div class="centro">
             <div class="titulo">
@@ -11,9 +11,13 @@
                 
                 
                     <a href="/cardapio"> CARDAPIO</a>
-                    <a href="/">RESERVAR</a>
-                    <a href="/login">LOGAR</a>
-                
+                    <!-- <a href="/">RESERVAR</a> -->
+                     @auth
+                     <a href="/delogarUsuario">deslogar</a>
+                     @endauth
+                     @guest
+                     <a href="/loginView">LOGAR</a>
+                     @endguest
             </div>
         </div>
        

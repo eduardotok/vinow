@@ -127,11 +127,11 @@
             <label for="nascimento" class="form-label">Data de nascimento</label>
             <input type="date" class="form-control" id="nascimento" name="nascimento">
           </div>
-
-          <div class="mb-3">
-            <label for="senha" class="form-label">Senha</label>
-            <input type="password" class="form-control" id="senha" name="senha">
-          </div>
+        <!-- 
+                <div class="mb-3">
+                    <label for="senha" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="senha" name="senha">
+                </div> -->
         </div>
 
         <div class="modal-footer">
@@ -188,11 +188,11 @@
                   <div class="infos">
                     <p class="id">{{$usuario -> id}}</p>
                     <p class="nome">{{$usuario -> nomeUser}} </p>
-                    <p class="email">{{$usuario -> emailUser}}</p>
+                    <p class="email">{{$usuario -> email}}</p>
                   </div>
                     <div class="funcoes">
                         <button><i class='bx bx-info-circle' ></i></button>
-                        <button  onclick="abrirModalEditarUsuario('{{$usuario -> id}}', '{{$usuario -> nomeUser}}', '{{$usuario -> emailUser}}', '{{$usuario -> dataNascUser}}', '{{$usuario -> senhaUser}}')"><i class='bx bx-edit' ></i></button>
+                        <button  onclick="abrirModalEditarUsuario('{{$usuario -> id}}', '{{$usuario -> nomeUser}}', '{{$usuario -> email}}', '{{$usuario -> dataNascUser}}', '{{$usuario -> senhaUser}}')"><i class='bx bx-edit' ></i></button>
                         <a href="deletarUsuario/{{$usuario -> id}}"><i class='bx bx-x' ></i></a>
                         @if ($usuario->statusUser==1)
                         <p style="color: #00A63D;">ativado</p>

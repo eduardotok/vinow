@@ -41,8 +41,6 @@ function abrirModalEditarUsuario(id, nome, email, nascimento, senha) {
     document.getElementById('nome').value = nome;
     document.getElementById('email').value = email;
     document.getElementById('nascimento').value = nascimento;
-    document.getElementById('senha').value = senha;
-
 
     document.getElementById('formEditarUsuario').action = '/editarUsuario/' + id;
 

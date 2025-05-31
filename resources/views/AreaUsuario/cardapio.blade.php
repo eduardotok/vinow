@@ -45,7 +45,7 @@
         @foreach ($produtos as $produto)
             <div class="card card-catalogo p-0 border-0" >
                 <div class="w-100 container-img-card">
-                    <img  src="img/produtos/{{$produto->imgProduto}}" class="img-fluid h-100 w-100" alt="">
+                    <img  src="img/produtos/{{$produto->imgProduto}}" class=" h-100 w-100" style="object-fit: cover;"alt="">
                 </div>
                 <div class="d-flex flex-column mt-2">
                     <p class="fw-medium fs-6 mb-1 text-uppercase">{{$produto->nomeProduto}}</p>

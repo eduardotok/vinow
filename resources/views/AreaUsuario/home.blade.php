@@ -23,10 +23,10 @@
                 <img src="img/image.png" class="card-img-top rounded-0" alt="...">
             </div>
             <div class="card">
-                <img src="img/image.png" class="card-img-top rounded-0" alt="...">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/7e/f5/b2/adega-santiago.jpg?w=600&h=-1&s=1" class="card-img-top rounded-0" alt="...">
             </div>
             <div class="card d-none d-md-block">
-                <img src="img/image.png" class="card-img-top rounded-0" alt="...">
+                <img src="https://img.freepik.com/fotos-gratis/interior-do-restaurante_1127-3392.jpg?semt=ais_hybrid&w=740" class="card-img-top rounded-0" alt="...">
             </div>
         </div>
 

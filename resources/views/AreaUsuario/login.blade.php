@@ -15,19 +15,29 @@
 
     
     <div class="full-width d-flex justify-content-center and align-items-center">
-        <form action="" class="formWrapper">
+        <form action="/login" class="formWrapper" method="POST">
+    @csrf
+            @if ($errors->any())
+    <div style="color:red;">
+        <ul>
+            @foreach ($errors->all() as $erro)
+                <li>{{ $erro }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
             <div class="mb-4">
                 <h2 class="text-center">FAÇA SEU LOGIN</h2>
             </div>
             
             <div class="input-group mb-3 px-1">
                 <label class="label">E-mail</label>
-                <input autocomplete="off" name="Email" id="Email" class="input" type="email">
+                <input autocomplete="off" name="email" id="Email" class="input" type="email">
                 <div></div>
             </div>
             <div class="input-group mb-3 px-1">
                 <label class="label">Senha</label>
-                <input autocomplete="off" name="Email" id="Email" class="input" type="email">
+                <input autocomplete="off" name="password" id="Email" class="input" type="password">
                 <div></div>
             </div>
 
@@ -39,9 +49,9 @@
                     <label>ENTRAR</label>
                 </button>
             </div>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <p class="text-sm-end text-center" style="color: var(--fontLowOpacity);">Esqueci minha senha</p>
-            </div>
+            </div> -->
         </form>
     </div>
 

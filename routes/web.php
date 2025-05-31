@@ -4,6 +4,7 @@ use App\Http\Controllers\ReservaControler;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\UsuarioController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ Route::get('/', function () {
 });
 Route::get('/homeAdmin','App\Http\Controllers\UsuarioController@index');
 
-Route::get('/login', function () {
+Route::get('/loginView', function () {
     return view('areaUsuario.login');
 });
 Route::get('/registro', function () {
@@ -49,4 +50,8 @@ Route::post('/inserirAgendamento', [ReservaControler::class, 'store'])->name('ag
 Route::post('/novoProduto', [ProdutosController::class, 'store'])->name('produtos.store');
 Route::post('/editarProduto/{id}', [ProdutosController::class, 'update'])->name('produtos.update');
 Route::get('/deletarProduto/{id}', [ProdutosController::class, 'destroy'])->name('produtos.destroy');
+Route::get('/deletarUsuario/{id}', [UsuarioController::class, 'destroy'])->name('usuarios.destroy');
+
 Route::post('/editarUsuario/{id}', [UsuarioController::class, 'update'])->name('usuario.update');
+Route::post( '/login','App\Http\Controllers\UsuarioController@login');
+Route::get ( '/delogarUsuario','App\Http\Controllers\UsuarioController@logout');

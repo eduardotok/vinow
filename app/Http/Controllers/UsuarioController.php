@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Usuario;
 use App\Models\Produto;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -17,17 +19,16 @@ class UsuarioController extends Controller
     public function index()
     {
         $usuario = Usuario::all();
-        $quantidadeUsuarios = Usuario ::where('statusUser',1)->count();
+        $quantidadeUsuarios = Usuario::where('statusUser', 1)->count();
 
         $produtos = produto::all();
-        $quantidadeProdutos = produto ::count();
+        $quantidadeProdutos = produto::count();
 
         return view('areaAdmin.homeAdmin')
-        ->with('usuarios',$usuario) 
-        ->with('quantUsuarios',$quantidadeUsuarios)
-        ->with('produtos',$produtos) 
-        ->with('quantidadeProdutos',$quantidadeProdutos);
-
+            ->with('usuarios', $usuario)
+            ->with('quantUsuarios', $quantidadeUsuarios)
+            ->with('produtos', $produtos)
+            ->with('quantidadeProdutos', $quantidadeProdutos);
     }
 
     /**
@@ -47,8 +48,8 @@ class UsuarioController extends Controller
     {
         $usuario = new Usuario();
         $usuario->nomeUser = $request->nome;
-        $usuario->emailUser = $request->email;
-        $usuario->senhaUser = $request->senha;
+        $usuario->email = $request->email;
+        $usuario->password = Hash::make($request->password);
         $usuario->dataNascUser = $request->dataNasc;
         $usuario->statusUser = 1;
         $usuario->save();
@@ -87,12 +88,12 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-    $usuario = Usuario::findOrFail($id);
-    $usuario->nomeUser = $request->nome;
-    $usuario->emailUser = $request->email;
-    $usuario->dataNascUser = $request->nascimento;
-    $usuario->save();
-    return back();
+        $usuario = Usuario::findOrFail($id);
+        $usuario->nomeUser = $request->nome;
+        $usuario->email = $request->email;
+        $usuario->dataNascUser = $request->nascimento;
+        $usuario->save();
+        return back();
     }
 
     /**
@@ -103,7 +104,30 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        Usuario::where('id',$id)->delete();
+        Usuario::where('id', $id)->delete();
         return back();
+    }
+    public function login(Request $request)
+    {
+        // Validação dos dados
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        // Tentativa de autenticação
+        if (!Auth::attempt($request->only(['email', 'password']))) {
+            return redirect('/loginView')->withErrors([
+                'login' => 'E-mail ou senha inválidos.'
+            ]);
+        }
+
+        // Login bem-sucedido
+        return redirect('/home');
+    }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/loginView');
     }
 }
