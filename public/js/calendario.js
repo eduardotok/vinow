@@ -40,12 +40,12 @@ console.log(dataAtual.getFullYear() , mesAtual)
                 <input type="hidden" id="ano" name="ano" value="${anoAtual}">
         <input type="hidden" id="mes" name="mes" value="${mesAtualForm}">
 
-        <label for="diaMes - ${i}">${i}</label>  <div class="bolinha-vermeia"></div></div>`
+        <label for="diaMes - ${i}">${i}</label>  <div class="bolinha-verde"></div></div>`
     }
     for(let i = 1; i<= 7- indexUltimoDia; i++){
 
         const proxData = new Date(anoAtual, mesAtual + 1, i)
-        datasHTML += `<div class="diasDoAno data-inativa">${proxData.getDate()} <div class="bolinha-vermeia"></div></div>`
+        datasHTML += `<div class="diasDoAno data-inativa">${proxData.getDate()} <div class="bolinha-verde"></div></div>`
 
     }
 

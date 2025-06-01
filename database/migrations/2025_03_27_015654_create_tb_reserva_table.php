@@ -18,12 +18,8 @@ return new class extends Migration
             $table->date("dataReserva");
             $table->integer("qtdClientesReserva");
             $table->string("horarioReserva");
-            $table->unsignedBigInteger("idUser");
-            $table->unsignedBigInteger("idMesa");   
-            $table->unsignedBigInteger("idAgenda");                     
-            $table->foreign("idUser")->references("id")->on("tb_user");
-            $table->foreign("idMesa")->references("id")->on("tb_mesa");
-            $table->foreign("idAgenda")->references("id")->on("tb_agenda");
+                    
+            $table->foreign("idUser")->references("id")->on("users");
             $table->timestamps();
         });
     }

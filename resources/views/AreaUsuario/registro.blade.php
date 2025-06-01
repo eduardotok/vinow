@@ -38,7 +38,7 @@
             </div>
             <div class="input-group mb-3 px-1">
                 <label class="label">Senha</label>
-                <input autocomplete="off" name="senha" id="Email" class="input" type="password">
+                <input autocomplete="off" name="password" id="Email" class="input" type="password">
                 <div></div>
             </div>
             <div class="input-group mb-3 px-1">

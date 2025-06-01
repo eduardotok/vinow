@@ -18,7 +18,7 @@
 
 body{
     height: 100vh;
-
+    
 }
 
 
@@ -68,7 +68,7 @@ body{
 }
 
 .bolinha-verde{
-    background-color: var(--verde);
+    background-color: rgba(2, 2, 105, 0.399);
     width: 10px;
     height: 10px;
     border-radius: 50%;

@@ -38,14 +38,7 @@
                     <i class="bx bx-home-alt-2"></i>
                     <p>Visão geral</p>
                 </a>
-                <a href="#" class="links-sidebar">
-                    <i class="bx bx-message-dots"></i>
-                    <p>Mensagens</p>
-                </a>
-                <a href="#" class="links-sidebar">
-                    <i class="bx bx-shopping-bag"></i>
-                    <p>Pedidos</p>
-                </a>
+               
             </div>
             <div class="base-sidebar">
                 <a href="#" class="links-sidebar">
@@ -164,9 +157,9 @@
                     <p class="numero">{{ $quantidadeProdutos }}</p>
                     <i class="bx bx-bowl-hot"></i>
                 </div>
-                <div class="card-home"  id="cardReserva">
+                <div class="card-home"  id="cardReserva"  onclick="mostrarReservas()">
                     <p>Reservas</p>
-                    <p class="numero">0</p>
+                    <p class="numero">{{ $countReserva }}</p>
                     <i class="bx bx-calendar"></i>
                 </div>
             </div>
@@ -191,7 +184,7 @@
                     <p class="email">{{$usuario -> email}}</p>
                   </div>
                     <div class="funcoes">
-                        <button><i class='bx bx-info-circle' ></i></button>
+                      
                         <button  onclick="abrirModalEditarUsuario('{{$usuario -> id}}', '{{$usuario -> nomeUser}}', '{{$usuario -> email}}', '{{$usuario -> dataNascUser}}', '{{$usuario -> senhaUser}}')"><i class='bx bx-edit' ></i></button>
                         <a href="deletarUsuario/{{$usuario -> id}}"><i class='bx bx-x' ></i></a>
                         @if ($usuario->statusUser==1)
@@ -205,7 +198,6 @@
              
             </div>
         </div> 
-        <?php $viado = [10,1010,1010,1010,1010,1010,1010,1010,1010,1010,1010,10,10]?>
         <div class="container-fluid" id="cont-produtos">
             <div
                 class="titulo-areas d-flex justify-content-between"
@@ -243,6 +235,37 @@
                 @endforeach
             </div>
         </div>
+                <div class="container-fluid" id="cont-reservas"  style="display: none; width:100%;">
+                               <div class="titulo-areas">
+                <p>Reservas cadastrados</p>
+            </div>
+            <!-- <div class="container-input-pesquisa">
+                <input type="search" placeholder="Procure pelo nome do usuario">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div> -->
+            
+            
+            <div class="lista-cards-usuarios">
+                @foreach ($reserva as $usuario )
+                <div class="card-usuario" style="height: 80px;">
+                  <div class="infos">
+                    <p class="id">id: {{$usuario -> id}}</p>
+                    <p class="id"> usuario: {{$usuario -> idUser}}</p>
+                    <p class="nome"> data: {{$usuario -> dataReserva}} </p>
+                    <p class="nome"> horario: {{$usuario -> horarioReserva}}</p>
+                    <p> {{ $usuario -> qtdClientesReserva }} pessoa(s)</p>
+                  </div>
+                    <div class="funcoes">
+                      
+                        <a href="deletarReserva/{{$usuario -> id}}"><i class='bx bx-x' ></i></a>
+                    
+                    </div>
+                </div>
+                @endforeach
+             
+            </div>
+                </div>
+
     </main>
     <script src="js/homeadm.js"></script>
     <script src="js/atualizarFoto.js"></script>

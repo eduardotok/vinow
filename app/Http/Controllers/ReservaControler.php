@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reserva;
+use Illuminate\Support\Facades\Session;
 
 class ReservaControler extends Controller
 {
@@ -22,7 +23,7 @@ class ReservaControler extends Controller
 
     public function index()
     {
-        $reserva = $this->reserva->all();
+        $reserva = $this->reserva->where('idUser',Session::get('idUser'))->get();
 
         return view('areaUsuario.calendario', ['reservas' => $reserva]);
 
@@ -50,7 +51,7 @@ class ReservaControler extends Controller
 
         $stringData = $request->ano . "-" . $request->mes . "-" . $request->dia;
         $event = new Reserva();
-
+        $event->idUser = Session::get('idUser');
         $event->dataReserva = $stringData;
         $event->horarioReserva = $request->horario;
         $event->qtdClientesReserva = $request->pessoas;
@@ -102,6 +103,7 @@ class ReservaControler extends Controller
      */
     public function destroy($id)
     {
-        //
+        Reserva::where('id', $id)->delete();
+        return back();
     }
 }

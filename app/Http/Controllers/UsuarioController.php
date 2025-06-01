@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Models\Usuario;
 use App\Models\Produto;
+use App\Models\Reserva;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class UsuarioController extends Controller
 {
@@ -20,7 +22,8 @@ class UsuarioController extends Controller
     {
         $usuario = Usuario::all();
         $quantidadeUsuarios = Usuario::where('statusUser', 1)->count();
-
+        $reserva = Reserva::all();
+        $countReserva = Reserva::count();
         $produtos = produto::all();
         $quantidadeProdutos = produto::count();
 
@@ -28,7 +31,10 @@ class UsuarioController extends Controller
             ->with('usuarios', $usuario)
             ->with('quantUsuarios', $quantidadeUsuarios)
             ->with('produtos', $produtos)
-            ->with('quantidadeProdutos', $quantidadeProdutos);
+            ->with('quantidadeProdutos', $quantidadeProdutos)
+            ->with('reserva', $reserva)
+            ->with('countReserva', $countReserva);
+
     }
 
     /**
@@ -49,7 +55,7 @@ class UsuarioController extends Controller
         $usuario = new Usuario();
         $usuario->nomeUser = $request->nome;
         $usuario->email = $request->email;
-        $usuario->password = Hash::make($request->password);
+        $usuario->password = $request->password;
         $usuario->dataNascUser = $request->dataNasc;
         $usuario->statusUser = 1;
         $usuario->save();
@@ -109,25 +115,27 @@ class UsuarioController extends Controller
     }
     public function login(Request $request)
     {
-        // Validação dos dados
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
+        $usuario = Usuario::where('email',$request->email)->where('password',$request->password)->exists();
+        
 
-        // Tentativa de autenticação
-        if (!Auth::attempt($request->only(['email', 'password']))) {
+        
+         if(!$usuario) {
             return redirect('/loginView')->withErrors([
                 'login' => 'E-mail ou senha inválidos.'
             ]);
+        }else{
+            $id = Usuario::select('id')->where('email',$request->email)->where('password',$request->password)->get();
+            Session::put('idUser', $id[0]->id);
+            
+             return redirect('/home');
+            
         }
 
-        // Login bem-sucedido
-        return redirect('/home');
+        
     }
     public function logout()
     {
-        Auth::logout();
+        session()->flush();
         return redirect('/loginView');
     }
 }

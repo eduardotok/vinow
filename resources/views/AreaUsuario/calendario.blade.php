@@ -80,17 +80,18 @@
         
     </div>
 
-    @foreach ($reservas as $item)
-            <h4> Agendamento</h1>
+    <h4 style="margin-top: -150px; margin-left: 2%;"> Suas reservas</h1>
+  <div style="display: flex;gap:20px; margin-bottom: 20%; padding-inline: 20px;">
+      @foreach ($reservas as $item)
         
-        <ul>
-            <li>ID Agendamento: {{$item->id}}</li>
-            <li>Data Agendamento: {{$item->dataReserva}}</li>
-            <li>Horario Agendamento: {{$item->horarioReserva}}</li>
-            <li>Pessoas Agendamento: {{$item->qtdClientesReserva}}</li>
+        <div style="background-color: #fff;    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0); margin-bottom: 50px; padding: 1%; border-radius: 2px; border: 1px #999 solid;">
+            <p>Data Agendamento: {{$item->dataReserva}}</p>
+            <p>Horario Agendamento: {{$item->horarioReserva}}</p>
+            <p>Pessoas Agendamento: {{$item->qtdClientesReserva}}</p>
             
-        </ul>
+        </div>
         @endforeach
+  </div>
 
 
 

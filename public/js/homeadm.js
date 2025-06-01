@@ -1,12 +1,16 @@
 const cont_usuario = document.getElementById("cont-usuarios")
 const cont_produtos = document.getElementById("cont-produtos")
+const cont_reservas = document.getElementById("cont-reservas")
+
 const cUser = document.getElementById("cardUser")
 const cProd = document.getElementById("cardProd")
 const cRes = document.getElementById("cardReserva")
 
 function mostrarProduto(){
     cont_usuario.style.display ="none"
+    cont_reservas.style.display ="none"
     cont_produtos.style.display ="block"
+
     cUser.style.backgroundColor = "#fff";
     cUser.style.color = "var(--azul)"
     cRes.style.backgroundColor = "#fff";
@@ -15,6 +19,7 @@ function mostrarProduto(){
     cProd.style.color = "#fff"
 }
 function mostrarUsuario(){
+    cont_reservas.style.display ="none"
     cont_usuario.style.display ="block"
     cont_produtos.style.display ="none"
     cProd.style.backgroundColor = "#fff";
@@ -23,6 +28,17 @@ function mostrarUsuario(){
     cRes.style.color = "var(--azul)"
     cUser.style.backgroundColor = "var(--azul)";
     cUser.style.color = "#fff"
+}
+function mostrarReservas(){
+    cont_reservas.style.display ="block"
+    cont_usuario.style.display ="none"
+    cont_produtos.style.display ="none"
+    cProd.style.backgroundColor = "#fff";
+    cProd.style.color = "var(--azul)"
+    cUser.style.backgroundColor = "#fff";
+    cUser.style.color = "var(--azul)"
+    cRes.style.backgroundColor = "var(--azul)";
+    cRes.style.color = "#fff"
 }
 
 

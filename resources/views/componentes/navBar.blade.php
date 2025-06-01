@@ -12,12 +12,12 @@
                 
                     <a href="/cardapio"> CARDAPIO</a>
                     <!-- <a href="/">RESERVAR</a> -->
-                     @auth
-                     <a href="/delogarUsuario">deslogar</a>
-                     @endauth
-                     @guest
+                    @if (session('idUser'))
+                    <a href="/">RESERVAS</a>
+                     <a href="/delogarUsuario">DESLOGAR</a>
+                     @else
                      <a href="/loginView">LOGAR</a>
-                     @endguest
+                     @endif
             </div>
         </div>
        

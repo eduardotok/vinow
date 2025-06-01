@@ -42,6 +42,9 @@ Route::get('/nossoRestaurante', function(){
 Route::get('/home', function(){
     return view('areaUsuario.home');
 });
+Route::get('/pedidos', function(){
+    return view('areaUsuario.pedidos');
+});
 
 Route::get('/', [ReservaControler::class, 'index'])->name('agendamento.index');
 
@@ -51,6 +54,7 @@ Route::post('/novoProduto', [ProdutosController::class, 'store'])->name('produto
 Route::post('/editarProduto/{id}', [ProdutosController::class, 'update'])->name('produtos.update');
 Route::get('/deletarProduto/{id}', [ProdutosController::class, 'destroy'])->name('produtos.destroy');
 Route::get('/deletarUsuario/{id}', [UsuarioController::class, 'destroy'])->name('usuarios.destroy');
+Route::get('/deletarReserva/{id}', [ReservaControler::class, 'destroy'])->name('reserva.destroy');
 
 Route::post('/editarUsuario/{id}', [UsuarioController::class, 'update'])->name('usuario.update');
 Route::post( '/login','App\Http\Controllers\UsuarioController@login');

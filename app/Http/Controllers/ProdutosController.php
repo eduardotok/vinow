@@ -121,5 +121,5 @@ class ProdutosController extends Controller
     {
         Produto::where('id',$id)->delete();
         return back();
-    }
+    }   
 }
